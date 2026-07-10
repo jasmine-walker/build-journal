@@ -141,3 +141,52 @@ main.container { padding-top: 22px; padding-bottom: 40px; }
 .footer-links { display: flex; gap: 18px; justify-content: center; margin-top: 10px; }
 .footer-link { color: #fff; font-size: 13px; text-decoration: none; opacity: .85; font-weight: 600; }
 .footer-link:hover { opacity: 1; }
+
+/* ===== Icons + animations ===== */
+
+/* Align icons inside buttons, badges, stats, footer */
+.btn { display: inline-flex; align-items: center; gap: 6px; justify-content: center; }
+.badge { display: inline-flex; align-items: center; gap: 4px; }
+.stat-top { display: flex; align-items: center; gap: 6px; }
+.footer-link { display: inline-flex; align-items: center; gap: 6px; }
+.banner-text { display: inline-flex; align-items: center; gap: 7px; }
+.ai-mode { display: inline-flex; align-items: center; }
+
+/* Search field with leading icon */
+.search-wrap { position: relative; flex: 1; min-width: 160px; display: flex; }
+.search-wrap .search { width: 100%; padding-left: 34px; }
+.search-icon { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: var(--muted); pointer-events: none; }
+
+/* Cards: staggered pop-in on load + hover lift */
+@keyframes popIn {
+  from { opacity: 0; transform: translateY(10px) scale(.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.card { animation: popIn .34s cubic-bezier(.22,1,.36,1) both; transition: transform .15s ease, box-shadow .15s ease; }
+.card:hover { transform: translateY(-4px); box-shadow: 0 7px 0 rgba(0,0,0,.10); }
+
+/* AI suggestion slides in when it arrives */
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.ai-result { animation: slideIn .3s ease both; }
+
+/* Springier brick buttons */
+.btn { transition: transform .08s cubic-bezier(.34,1.56,.64,1), box-shadow .08s ease, filter .12s ease; }
+.btn:hover { filter: brightness(1.05); }
+.btn:active { transform: translateY(2px) scale(.98); box-shadow: 0 1px 0 rgba(0,0,0,.18); }
+
+/* Gentle pop for stats on load */
+.stat { animation: popIn .3s ease both; }
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .card, .stat, .ai-result, .btn { animation: none; transition: none; }
+  .card:hover { transform: none; }
+}
+
+/* Demo account box on the auth modal */
+.demo-box { margin-top: 16px; padding: 12px; border-radius: 10px; background: #FFF6D6; border: 2px solid var(--y); }
+.demo-title { display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: var(--ink); margin: 0 0 4px; }
+.demo-cred { font-size: 12px; color: #7a5c00; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; margin: 0 0 9px; }

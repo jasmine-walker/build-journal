@@ -1,3 +1,5 @@
+import { FileText, Github, Linkedin } from "lucide-react";
+
 export default function Footer() {
   return (
     <footer className="footer">
@@ -9,13 +11,13 @@ export default function Footer() {
       </p>
       <div className="footer-links">
         <a className="footer-link" href="https://jasminejwalker.com" target="_blank" rel="noreferrer">
-          Portfolio
+          <FileText size={15} /> Resume
         </a>
         <a className="footer-link" href="https://github.com/jasmine-walker" target="_blank" rel="noreferrer">
-          GitHub
+          <Github size={15} /> GitHub
         </a>
         <a className="footer-link" href="https://linkedin.com/in/jasminejwalker" target="_blank" rel="noreferrer">
-          LinkedIn
+          <Linkedin size={15} /> LinkedIn
         </a>
       </div>
     </footer>

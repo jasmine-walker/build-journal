@@ -1,3 +1,5 @@
+import { Search, Plus } from "lucide-react";
+
 const STATUSES = ["all", "owned", "building", "wishlist"];
 const SORTS = [
   { value: "newest", label: "Newest" },
@@ -10,22 +12,23 @@ export default function Toolbar({ search, onSearch, status, onStatus, sort, onSo
   return (
     <div className="toolbar">
       <div className="toolbar-row">
-        <input
-          className="input search"
-          type="text"
-          placeholder="Search by name…"
-          value={search}
-          onChange={(e) => onSearch(e.target.value)}
-        />
+        <div className="search-wrap">
+          <Search size={16} className="search-icon" />
+          <input
+            className="input search"
+            type="text"
+            placeholder="Search by name…"
+            value={search}
+            onChange={(e) => onSearch(e.target.value)}
+          />
+        </div>
         <select className="input select" value={sort} onChange={(e) => onSort(e.target.value)}>
           {SORTS.map((s) => (
-            <option key={s.value} value={s.value}>
-              Sort: {s.label}
-            </option>
+            <option key={s.value} value={s.value}>Sort: {s.label}</option>
           ))}
         </select>
         <button className="btn btn-green add-btn" onClick={onAdd}>
-          + Add set
+          <Plus size={16} strokeWidth={2.5} /> Add set
         </button>
       </div>
       <div className="tabs">

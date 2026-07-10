@@ -1,5 +1,8 @@
 import { useState } from "react";
+import { Sparkles } from "lucide-react";
 import { api } from "../api";
+
+const DEMO = { email: "demo@buildjournal.app", password: "demo1234" };
 
 export default function AuthModal({ mode, message, onClose, onAuthed, onSwitchMode }) {
   const [email, setEmail] = useState("");
@@ -9,16 +12,32 @@ export default function AuthModal({ mode, message, onClose, onAuthed, onSwitchMo
 
   const isRegister = mode === "register";
 
+  const finish = (token, user) => {
+    localStorage.setItem("token", token);
+    onAuthed(user);
+  };
+
   const submit = async () => {
     setError("");
     setBusy(true);
     try {
       const fn = isRegister ? api.register : api.login;
       const { token, user } = await fn(email, password);
-      localStorage.setItem("token", token);
-      onAuthed(user);
+      finish(token, user);
     } catch (e) {
       setError(e.message);
+      setBusy(false);
+    }
+  };
+
+  const tryDemo = async () => {
+    setError("");
+    setBusy(true);
+    try {
+      const { token, user } = await api.login(DEMO.email, DEMO.password);
+      finish(token, user);
+    } catch (e) {
+      setError("The demo account isn't available right now.");
       setBusy(false);
     }
   };
@@ -57,6 +76,14 @@ export default function AuthModal({ mode, message, onClose, onAuthed, onSwitchMo
         <button className="btn btn-primary btn-block" onClick={submit} disabled={busy}>
           {busy ? "Please wait…" : isRegister ? "Sign up" : "Log in"}
         </button>
+
+        <div className="demo-box">
+          <p className="demo-title"><Sparkles size={14} strokeWidth={2.5} /> Just exploring?</p>
+          <p className="demo-cred">demo@buildjournal.app &middot; demo1234</p>
+          <button className="btn btn-ghost btn-block" onClick={tryDemo} disabled={busy}>
+            Try the demo account
+          </button>
+        </div>
 
         <p className="auth-switch">
           {isRegister ? "Already have an account?" : "New here?"}{" "}

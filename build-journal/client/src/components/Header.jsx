@@ -11,7 +11,7 @@ export default function Header({ user, onLogin, onSignup, onLogout }) {
             </span>
             Build Journal
           </span>
-          <span className="header-tagline">Your brick collection, tracked.</span>
+          <span className="header-tagline">Your LEGO® sets, organized.</span>
         </div>
         <div className="header-actions">
           {user ? (

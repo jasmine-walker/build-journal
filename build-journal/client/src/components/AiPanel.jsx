@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Sparkles } from "lucide-react";
 import { api } from "../api";
 
 // The dual-mode AI feature: a toggle picks the mode, one button runs it,
@@ -41,7 +42,7 @@ export default function AiPanel() {
           </button>
         </div>
         <button className="btn btn-yellow" onClick={ask} disabled={loading}>
-          {loading ? "Thinking…" : "✦ Ask AI"}
+          <Sparkles size={15} strokeWidth={2.5} /> {loading ? "Thinking…" : "Ask AI"}
         </button>
       </div>
       {error && <p className="error ai-result">{error}</p>}

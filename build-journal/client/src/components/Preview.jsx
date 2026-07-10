@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Eye, Sparkles } from "lucide-react";
 import { api } from "../api";
 import SetGrid from "./SetGrid.jsx";
 import StatsStrip from "./StatsStrip.jsx";
@@ -22,7 +23,7 @@ export default function Preview({ onRequireAuth }) {
   return (
     <>
       <div className="banner">
-        <span>👀 You're viewing a sample collection.</span>
+        <span className="banner-text"><Eye size={16} /> You're viewing a sample collection.</span>
         <button className="link-btn" onClick={nudge}>
           Sign up to start your own
         </button>
@@ -37,7 +38,7 @@ export default function Preview({ onRequireAuth }) {
             <span className="ai-mode">Build challenge</span>
           </div>
           <button className="btn btn-yellow" onClick={nudge}>
-            ✦ Ask AI
+            <Sparkles size={15} strokeWidth={2.5} /> Ask AI
           </button>
         </div>
       </div>
