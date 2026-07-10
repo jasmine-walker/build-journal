@@ -40,7 +40,7 @@ export default function AiPanel() {
             Build challenge
           </button>
         </div>
-        <button className="btn btn-primary" onClick={ask} disabled={loading}>
+        <button className="btn btn-yellow" onClick={ask} disabled={loading}>
           {loading ? "Thinking…" : "✦ Ask AI"}
         </button>
       </div>

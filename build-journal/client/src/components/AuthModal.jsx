@@ -26,6 +26,11 @@ export default function AuthModal({ mode, message, onClose, onAuthed, onSwitchMo
   return (
     <div className="overlay" onClick={onClose}>
       <div className="modal modal-narrow" onClick={(e) => e.stopPropagation()}>
+        <div className="modal-pips">
+          <span className="pip" style={{ background: "#E02A25" }} />
+          <span className="pip" style={{ background: "#FFCF00" }} />
+          <span className="pip" style={{ background: "#1A6DD5" }} />
+        </div>
         <h2 className="modal-title">{isRegister ? "Create your account" : "Welcome back"}</h2>
         {message && <p className="auth-message">{message}</p>}
 

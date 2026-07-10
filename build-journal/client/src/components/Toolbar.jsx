@@ -24,7 +24,7 @@ export default function Toolbar({ search, onSearch, status, onStatus, sort, onSo
             </option>
           ))}
         </select>
-        <button className="btn btn-primary add-btn" onClick={onAdd}>
+        <button className="btn btn-green add-btn" onClick={onAdd}>
           + Add set
         </button>
       </div>

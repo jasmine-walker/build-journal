@@ -8,7 +8,11 @@ function SetCard({ set, onEdit, onDelete, readOnly }) {
     .join(" · ");
 
   return (
-    <div className="card">
+    <div className={`card card-${set.status}`}>
+      <div className="card-studs">
+        <span className="card-stud" />
+        <span className="card-stud" />
+      </div>
       <div className="card-top">
         <p className="card-name">{set.name}</p>
         {set.set_number && <span className="card-number">#{set.set_number}</span>}

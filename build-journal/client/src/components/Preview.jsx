@@ -36,7 +36,7 @@ export default function Preview({ onRequireAuth }) {
             <span className="ai-mode ai-mode-active">What to build next</span>
             <span className="ai-mode">Build challenge</span>
           </div>
-          <button className="btn btn-primary" onClick={nudge}>
+          <button className="btn btn-yellow" onClick={nudge}>
             ✦ Ask AI
           </button>
         </div>

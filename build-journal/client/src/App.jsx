@@ -4,6 +4,7 @@ import Header from "./components/Header.jsx";
 import Collection from "./components/Collection.jsx";
 import Preview from "./components/Preview.jsx";
 import AuthModal from "./components/AuthModal.jsx";
+import Footer from "./components/Footer.jsx";
 
 export default function App() {
   const [user, setUser] = useState(null);
@@ -61,6 +62,7 @@ export default function App() {
           <Preview onRequireAuth={(msg) => openAuth("register", msg)} />
         )}
       </main>
+      <Footer />
       {authOpen && (
         <AuthModal
           mode={authMode}
