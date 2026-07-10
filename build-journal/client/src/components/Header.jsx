@@ -9,9 +9,9 @@ export default function Header({ user, onLogin, onSignup, onLogout }) {
               <span className="pip" style={{ background: "#1A6DD5" }} />
               <span className="pip" style={{ background: "#3EA33F" }} />
             </span>
-            Build Journal
+            LEGO&reg; Build Journal
           </span>
-          <span className="header-tagline">Your LEGO® sets, organized.</span>
+          <span className="header-tagline">Your LEGO&reg; sets, organized.</span>
         </div>
         <div className="header-actions">
           {user ? (
